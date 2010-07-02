@@ -183,7 +183,7 @@ class TestMeta < MiniTest::Unit::TestCase
     top_methods = %w(setup teardown test_0001_top_level_it)
     inner_methods = %w(setup test_0001_inner_it)
 
-    assert_equal top_methods, x.instance_methods(false).sort
-    assert_equal inner_methods, y.instance_methods(false).sort
+    assert_equal top_methods, x.instance_methods(false).sort.map(&:to_s)
+    assert_equal inner_methods, y.instance_methods(false).sort.map(&:to_s)
   end
 end
